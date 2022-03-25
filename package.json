@@ -4,6 +4,13 @@
   "description": " A quasar project using vite",
   "productName": "QV",
   "author": "ub3rb3457",
+  "type": "module",
+  "jest": {
+    "testEnvironment":"jsdom",
+    "transform": {
+      "^.+\\.vue$": "vue-jest"
+    }
+  },
   "private": true,
   "scripts": {
     "storybook": "start-storybook -p 6006",
@@ -11,7 +18,7 @@
     "test:storybook": "test-storybook",
     "lint": "eslint --ext .js,.vue ./",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --setupFilesAfterEnv ./setupFile.js"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
